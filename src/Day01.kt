@@ -1,15 +1,24 @@
 fun main() {
+    fun countRaising(values: List<Int>): Int {
+        return values.zip(values.drop(1)).count { it.first < it.second }
+    }
+
     fun part1(input: List<String>): Int {
-        return input.size
+        return countRaising(input.map { it.toInt() })
     }
 
     fun part2(input: List<String>): Int {
-        return input.size
+        val values = input.map { it.toInt() }
+        val chunks = IntRange(0, values.size - 3).map {
+            values.slice(IntRange(it, it + 2)).sum()
+        }
+
+        return countRaising(chunks)
     }
 
-    // test if implementation meets criteria from the description, like:
     val testInput = readInput("Day01_test")
-    check(part1(testInput) == 1)
+    expect(part1(testInput), 7)
+    expect(part2(testInput), 5)
 
     val input = readInput("Day01")
     println(part1(input))
