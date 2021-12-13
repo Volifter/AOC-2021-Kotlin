@@ -1,36 +1,36 @@
-class Board(lines: List<String>) {
-    private val rows = lines.map { line ->
-        line.split(" ").filter { it.isNotEmpty() }.map { it.toInt() }
-    }
-    private val columns = IntRange(0, 4).toList().map { y ->
-        IntRange(0, 4).toList().map { x -> this.rows[x][y] }
-    }
-    private var lines = (rows + columns).map { Pair(it, 0) }
-    var isDone = false
-    var sum = this.rows.flatten().sum()
-
-    fun addNumber(n: Int) {
-        var found = false
-
-        this.lines = this.lines.map { line ->
-            if (line.first.contains(n)) {
-                found = true
-                if (line.second == 4)
-                    this.isDone = true
-                return@map Pair(line.first, line.second + 1)
-            }
-            line
-        }
-        if (found)
-            this.sum -= n
-    }
-
-    override fun toString(): String {
-        return "Board(" + this.lines + ")"
-    }
-}
-
 fun main() {
+    class Board(lines: List<String>) {
+        private val rows = lines.map { line ->
+            line.split(" ").filter { it.isNotEmpty() }.map { it.toInt() }
+        }
+        private val columns = IntRange(0, 4).toList().map { y ->
+            IntRange(0, 4).toList().map { x -> this.rows[x][y] }
+        }
+        private var lines = (rows + columns).map { Pair(it, 0) }
+        var isDone = false
+        var sum = this.rows.flatten().sum()
+
+        fun addNumber(n: Int) {
+            var found = false
+
+            this.lines = this.lines.map { line ->
+                if (line.first.contains(n)) {
+                    found = true
+                    if (line.second == 4)
+                        this.isDone = true
+                    return@map Pair(line.first, line.second + 1)
+                }
+                line
+            }
+            if (found)
+                this.sum -= n
+        }
+
+        override fun toString(): String {
+            return "Board(" + this.lines + ")"
+        }
+    }
+
     fun part1(lines: List<String>): Int {
         val data    = lines.filter { it.isNotEmpty() }
         val numbers = data[0].split(",").map { it.toInt() }

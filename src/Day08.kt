@@ -1,27 +1,27 @@
-val SEGMENT_COUNTS = mapOf(
-    Pair(4, "e".toSet()),
-    Pair(6, "b".toSet()),
-    Pair(7, "dg".toSet()),
-    Pair(8, "ac".toSet()),
-    Pair(9, "f".toSet()),
-)
-val DIGIT_SEQUENCES = mapOf(
-    Pair(0, "abcefg".toSet()),
-    Pair(1, "cf".toSet()),
-    Pair(2, "acdeg".toSet()),
-    Pair(3, "acdfg".toSet()),
-    Pair(4, "bcdf".toSet()),
-    Pair(5, "abdfg".toSet()),
-    Pair(6, "abdefg".toSet()),
-    Pair(7, "acf".toSet()),
-    Pair(8, "abcdefg".toSet()),
-    Pair(9, "abcdfg".toSet())
-)
-val SEQUENCE_DIGITS = mapOf(*DIGIT_SEQUENCES.map {
-    Pair(it.value, it.key)
-}.toTypedArray())
-
 fun main() {
+    val SEGMENT_COUNTS = mapOf(
+        Pair(4, "e".toSet()),
+        Pair(6, "b".toSet()),
+        Pair(7, "dg".toSet()),
+        Pair(8, "ac".toSet()),
+        Pair(9, "f".toSet()),
+    )
+    val DIGIT_SEQUENCES = mapOf(
+        Pair(0, "abcefg".toSet()),
+        Pair(1, "cf".toSet()),
+        Pair(2, "acdeg".toSet()),
+        Pair(3, "acdfg".toSet()),
+        Pair(4, "bcdf".toSet()),
+        Pair(5, "abdfg".toSet()),
+        Pair(6, "abdefg".toSet()),
+        Pair(7, "acf".toSet()),
+        Pair(8, "abcdefg".toSet()),
+        Pair(9, "abcdfg".toSet())
+    )
+    val SEQUENCE_DIGITS = mapOf(*DIGIT_SEQUENCES.map {
+        Pair(it.value, it.key)
+    }.toTypedArray())
+
     fun compute(
         sequences: Set<Set<Char>>,
         segments: Set<Char>,

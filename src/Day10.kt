@@ -1,13 +1,13 @@
-val BRACKET_PAIRS = mapOf(
-    Pair('(', ')'),
-    Pair('[', ']'),
-    Pair('{', '}'),
-    Pair('<', '>')
-)
-
 enum class Mode { SYNTAX_ERROR, COMPLETION }
 
 fun main() {
+    val BRACKET_PAIRS = mapOf(
+        Pair('(', ')'),
+        Pair('[', ']'),
+        Pair('{', '}'),
+        Pair('<', '>')
+    )
+
     fun parseBrackets(line: String, mode: Mode): String {
         val stack = emptyList<Char>().toMutableList()
 
