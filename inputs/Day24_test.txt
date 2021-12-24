@@ -1,0 +1,11 @@
+inp z
+inp x
+mul x 0
+add x 2
+add z x
+inp x
+mul x 2
+add z x
+mod z 3
+
+# z = inp_0 + (inp_1 * 0 + 2) + (inp_2 * 2) % 3 = 0
